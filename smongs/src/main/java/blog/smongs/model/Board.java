@@ -1,6 +1,6 @@
 package blog.smongs.model;
 
-import java.security.Timestamp;
+import java.sql.Timestamp;
 import java.util.List;
 
 import javax.persistence.Column;
