@@ -1,5 +1,5 @@
 # my_blog
-https://www.youtube.com/watch?v=zi1l3lYJRL4&list=PL93mKxaRDidECgjOBjPgI3Dyo8ka6Ilqm&index=50
+https://www.youtube.com/watch?v=cC1tI8cOOOk&list=PL93mKxaRDidECgjOBjPgI3Dyo8ka6Ilqm&index=53
 
 # instar
 https://github.com/woasmsshfl/photogram
