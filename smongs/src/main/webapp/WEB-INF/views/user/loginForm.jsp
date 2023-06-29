@@ -3,23 +3,23 @@
 <%@ include file="../layout/header.jsp" %>
 
 <div class="container">
-    <form action="/action_page.php">
+    <form action="#" method="post">
         <div class="form-group">
             <label for="username">Username:</label>
-            <input type="text" class="form-control" id="username" placeholder="Enter username" name="username">
+            <input type="text" name="username" class="form-control" id="username" placeholder="Enter username" name="username">
           </div>
 
         <div class="form-group">
           <label for="password">Password:</label>
-          <input type="password" class="form-control" id="password" placeholder="Enter password" name="password">
+          <input type="password" name="password" class="form-control" id="password" placeholder="Enter password" name="password">
         </div>
 
         <div class="form-group form-check">
           <label class="form-check-label">
-            <input class="form-check-input" type="checkbox" name="remember"> Remember me
+            <input name="remember" class="form-check-input" type="checkbox" name="remember"> Remember me
           </label>
         </div>
-        <button type="submit" class="btn btn-primary">Sign In</button>
+        <button id="btn-login" class="btn btn-primary">Sign In</button>  
       </form>
 </div>
 
