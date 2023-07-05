@@ -1,4 +1,4 @@
-const gitToken = "ghu_Tn1roTncBNCWCBxQxH1gbbWSNVb4Y04RawpD";
+const gitToken = "ghu_S0PEqsQLDk0PgXSDDooMsdzBk7LGAf1DhIFr";
 
 let index = {
     init: function(){
