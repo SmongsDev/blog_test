@@ -14,7 +14,6 @@ import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
-import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.CreationTimestamp;
 
 import lombok.AllArgsConstructor;
@@ -39,7 +38,6 @@ public class Board {
     @Lob // 대용량 데이터일때 사용
     private String content;
 
-    @ColumnDefault("0")
     private int cout; // 조회수
 
     @ManyToOne(fetch = FetchType.EAGER) // Board = Many, User = One

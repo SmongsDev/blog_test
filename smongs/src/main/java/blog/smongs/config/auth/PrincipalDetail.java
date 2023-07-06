@@ -1,6 +1,7 @@
 package blog.smongs.config.auth;
 
 import blog.smongs.model.User;
+import lombok.Getter;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -8,6 +9,7 @@ import java.util.Collection;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+@Getter
 public class PrincipalDetail implements UserDetails{
     private User user;
 
