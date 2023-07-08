@@ -1,4 +1,4 @@
-const gitToken = process.env.gitHubToken;
+const gitToken = "ghu_3KOmWOJTNOVVPlnr0MuoWFBkc99EAE15PCeP";
 
 let index = {
     init: function(){

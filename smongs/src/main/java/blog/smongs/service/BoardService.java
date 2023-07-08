@@ -1,5 +1,7 @@
 package blog.smongs.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -19,5 +21,9 @@ public class BoardService {
         board.setCout(0);
         board.setUser(user);
         boardRepository.save(board);
+    }
+
+    public List<Board> boardList(){
+        return boardRepository.findAll();
     }
 }
