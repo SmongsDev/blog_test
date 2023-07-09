@@ -35,7 +35,7 @@ public class SecurityConfig{
 		http
 		  .csrf().disable() // csrf 토큰 비활성화 테스트시 걸어두면 편함
 		  .authorizeHttpRequests()
-		    .antMatchers("/","/auth/**","/js/**","/css/**","/images/**","/WEB-INF/**")
+		    .antMatchers("/","/auth/**","/js/**","/css/**","/images/**","/WEB-INF/**", "/dummy/**")
 			.permitAll()
 			.anyRequest()
 			.authenticated()
