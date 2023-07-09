@@ -1,4 +1,4 @@
-const gitToken = "ghu_3KOmWOJTNOVVPlnr0MuoWFBkc99EAE15PCeP";
+const gitToken = "ghu_sTbYlcMWzF6wacXFp4uNf0v4Q0mn89165k8j";
 
 let index = {
     init: function(){
@@ -6,7 +6,10 @@ let index = {
             this.save();
         });
         $("#btn-delete").on("click", ()=>{
-            this.save();
+            this.deleteById();
+        });
+        $("#btn-update").on("click", ()=>{
+            this.update();
         });
     },
 
@@ -33,7 +36,7 @@ let index = {
     },
 
     deleteById: function(){
-        var id = $("#id").text();
+        let id = $("#id").text();
 
         $.ajax({
             type: "DELETE",
@@ -50,6 +53,29 @@ let index = {
                     alert('not found');
                     break;
             }
+            location.href = "/";
+        }).fail(function(error){
+            alert(JSON.stringify(error));
+        });
+    },
+    
+    update: function(){
+        let id = $("#id").val();
+
+        let data = {
+            title: $("#title").val(),
+            content: $("#content").val()
+        };
+
+        $.ajax({
+            type: "put",
+            url: "/api/board/"+id,
+            headers: {"X-Github-Token": gitToken},
+            data: JSON.stringify(data),
+            contentType: "application/json; charset=utf-8",
+            dataType: "json"
+        }).done(function(resp){
+            alert("수정이 완료되었습니다.");
             location.href = "/";
         }).fail(function(error){
             alert(JSON.stringify(error));

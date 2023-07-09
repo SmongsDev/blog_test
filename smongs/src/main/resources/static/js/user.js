@@ -1,9 +1,12 @@
-const gitToken = "ghu_3KOmWOJTNOVVPlnr0MuoWFBkc99EAE15PCeP";
+const gitToken = "ghu_sTbYlcMWzF6wacXFp4uNf0v4Q0mn89165k8j";
 
 let index = {
     init: function(){
         $("#btn-save").on("click", ()=>{ // this를 바인딩하기 위해서
             this.save();
+        });
+        $("#btn-update").on("click", ()=>{
+            this.update();
         });
     },
 
@@ -24,6 +27,29 @@ let index = {
             dataType: "json"
         }).done(function(resp){
             alert("회원가입이 완료되었습니다.");
+            // console.log(resp);
+            location.href = "/";
+        }).fail(function(error){
+            alert(JSON.stringify(error));
+        });
+    },
+    
+    update: function(){
+        let data = {
+            id: $('#id').val(),
+            password: $("#password").val(),
+            email: $("#email").val()
+        };
+
+        $.ajax({
+            type: "put",
+            url: "/user",
+            headers: {"X-Github-Token": gitToken},
+            data: JSON.stringify(data),
+            contentType: "application/json; charset=utf-8",
+            dataType: "json"
+        }).done(function(resp){
+            alert("회원 수정이 완료되었습니다.");
             // console.log(resp);
             location.href = "/";
         }).fail(function(error){

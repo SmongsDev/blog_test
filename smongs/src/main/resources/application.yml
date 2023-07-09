@@ -13,7 +13,7 @@ spring:
             use-new-id-generator-mapping: false
         properties:
             hibernate.format_sql: true
-        show-sql: true
+        # show-sql: true
     mvc:
         view:
             prefix: /WEB-INF/views/

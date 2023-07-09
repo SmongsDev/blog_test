@@ -4,15 +4,16 @@
 
 <div class="container">
     <form>
+        <input type="hidden" id="id" value="${board.id}">
         <div class="form-group">
-            <input type="text" class="form-control" id="title" placeholder="Enter title">
+            <input value="${board.title}" type="text" class="form-control" id="title" placeholder="Enter title">
           </div>
 
           <div class="form-group">
-            <textarea class="form-control summernote" class="summernote" rows="5" id="content"></textarea>
+            <textarea class="form-control summernote" class="summernote" rows="5" id="content">${board.content}</textarea>
           </div>
       </form>
-      <button id="btn-save" class="btn btn-primary">Write</button>  
+      <button id="btn-update" class="btn btn-primary">Update</button>  
 </div>
 <script>
     $('.summernote').summernote({

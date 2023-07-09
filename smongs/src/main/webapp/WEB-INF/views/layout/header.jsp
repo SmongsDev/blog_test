@@ -4,9 +4,9 @@
 <sec:authorize access="isAuthenticated()">
     <sec:authentication property="principal" var="principal"></sec:authentication>
 </sec:authorize>
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <title>Bootstrap Example</title>
     <meta charset="utf-8">

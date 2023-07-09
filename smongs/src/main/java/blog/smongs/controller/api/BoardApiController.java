@@ -14,6 +14,8 @@ import blog.smongs.config.auth.PrincipalDetail;
 import blog.smongs.dto.ResponseDto;
 import blog.smongs.model.Board;
 import blog.smongs.service.BoardService;
+import org.springframework.web.bind.annotation.PutMapping;
+
 
 @RestController
 public class BoardApiController {
@@ -30,6 +32,12 @@ public class BoardApiController {
     @DeleteMapping("/api/board/{id}")
     public ResponseDto<Integer> deleteById(@PathVariable int id, @AuthenticationPrincipal PrincipalDetail principal){
         boardService.boardDelete(id, principal);
+        return new ResponseDto<Integer>(HttpStatus.OK.value(), 1);
+    }
+
+    @PutMapping("/api/board/{id}")
+    public ResponseDto<Integer> update(@PathVariable int id, @RequestBody Board board){
+        boardService.boardUpdate(id, board);
         return new ResponseDto<Integer>(HttpStatus.OK.value(), 1);
     }
 }
