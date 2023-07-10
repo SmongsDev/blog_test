@@ -1,4 +1,4 @@
-const gitToken = "ghu_sTbYlcMWzF6wacXFp4uNf0v4Q0mn89165k8j";
+const gitToken = "ghu_vwGW9Qk2qVNQvopnbYSWLRFwdntbsi0bcPrv";
 
 let index = {
     init: function(){
@@ -37,6 +37,7 @@ let index = {
     update: function(){
         let data = {
             id: $('#id').val(),
+            username: $("#username").val(),
             password: $("#password").val(),
             email: $("#email").val()
         };
