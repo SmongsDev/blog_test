@@ -1,21 +1,29 @@
 package blog.smongs.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import java.util.Optional;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import blog.smongs.config.auth.PrincipalDetail;
+import blog.smongs.dto.ReplySaveRequestDto;
 import blog.smongs.model.Board;
+import blog.smongs.model.Reply;
 import blog.smongs.model.User;
 import blog.smongs.repository.BoardRepository;
+import blog.smongs.repository.ReplyRepository;
+import blog.smongs.repository.UserRepository;
+import lombok.RequiredArgsConstructor;
 
 @Service
+@RequiredArgsConstructor
 public class BoardService {
-    
-    @Autowired
-    private BoardRepository boardRepository;
+
+    private final UserRepository userRepository;
+    private final BoardRepository boardRepository;
+    private final ReplyRepository replyRepository;
 
     @Transactional
     public void write(Board board, User user){
@@ -58,5 +66,42 @@ public class BoardService {
             });
         board.setTitle(requestBoard.getTitle());
         board.setContent(requestBoard.getContent());
+    }
+
+    // 댓글
+
+    @Transactional
+    public Reply replyDetail(int id){
+        return replyRepository.findById(id)
+            .orElseThrow(()->{
+                return new IllegalArgumentException("댓글 찾기 실패 ");
+            });
+    } 
+
+    @Transactional
+    public void replyWrite(ReplySaveRequestDto replySaveRequestDto){
+
+        User user = userRepository.findById(replySaveRequestDto.getUserId())
+            .orElseThrow(()->{
+                return new IllegalArgumentException("댓글 쓰기 실패 : 사용자 Id를 찾을 수 없습니다.");
+            });
+
+        Board board = boardRepository.findById(replySaveRequestDto.getBoardId())
+            .orElseThrow(()->{
+                return new IllegalArgumentException("댓글 쓰기 실패 : 게시글 id를 찾을 수 없습니다.");
+            });
+
+        Reply reply = new Reply();
+        reply.update(user, board, replySaveRequestDto.getContent());
+
+        replyRepository.save(reply);
+
+        // replyRepository.mSave(replySaveRequestDto.getUserId(), replySaveRequestDto.getBoardId(), replySaveRequestDto.getContent());
+        // System.out.println("작성 댓글 개수 : " + result);
+    }
+
+    @Transactional
+    public void replyDelete(int replyId){
+        replyRepository.deleteById(replyId);
     }
 }

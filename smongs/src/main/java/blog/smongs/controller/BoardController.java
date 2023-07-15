@@ -39,4 +39,10 @@ public class BoardController {
         model.addAttribute("board", boardService.boardDetail(id));
         return "board/updateForm";
     }
+    
+    @GetMapping("/board/{boardId}/replyUpdateForm/{replyId}")
+    public String replyUpdateForm(@PathVariable int boardId, @PathVariable int replyId, Model model){
+        model.addAttribute("reply", boardService.replyDetail(replyId));
+        return "board/replyUpdateForm";
+    }
 }

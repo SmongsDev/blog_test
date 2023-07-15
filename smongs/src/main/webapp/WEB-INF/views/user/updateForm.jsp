@@ -10,14 +10,16 @@
             <input type="text" value="${principal.user.username}" class="form-control" id="username" placeholder="Enter username" name="username" readonly>
           </div>
           
-        <div class="form-group">
-          <label for="password">Password:</label>
-          <input type="password" class="form-control" id="password" placeholder="Enter password" name="password">
-        </div>
+        <c:if test="${empty principal.user.oauth}">
+          <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" class="form-control" id="password" placeholder="Enter password" name="password">
+          </div>
+        </c:if>
 
         <div class="form-group">
           <label for="email">Email:</label>
-          <input type="email" value="${principal.user.email}" class="form-control" id="email" placeholder="Enter email" name="email">
+          <input type="email" value="${principal.user.email}" class="form-control" id="email" placeholder="Enter email" name="email" readonly>
         </div>
 
       </form>

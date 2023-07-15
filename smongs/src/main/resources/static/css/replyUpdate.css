@@ -1,0 +1,8 @@
+#regist {
+    border: 1px solid black;
+    background: pink;
+    position: absolute;
+    top: 200px;
+    left: 500px;
+    display: none;
+}

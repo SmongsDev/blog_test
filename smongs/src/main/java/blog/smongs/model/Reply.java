@@ -37,9 +37,20 @@ public class Reply {
     private Board board;
 
     @ManyToOne
-    @JoinColumn(name="userId")
+    @JoinColumn(name = "userId")
     private User user;
 
     @CreationTimestamp
     private Timestamp createDate;
+
+    public void update(User user, Board board, String content){
+        setUser(user);
+        setBoard(board);
+        setContent(content);
+    }
+
+    // @Override
+    // public String toString(){
+    //     return "REPLY [id=" + id + ", content=" + "content" + ", board=" + board + ", user=" + user + ", createDate=" + createDate + "]";
+    // }
 }
