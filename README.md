@@ -1,5 +1,4 @@
 # my_blog
-https://youtu.be/WACDTFroYNI?t=2341
 
 # instar
 https://github.com/woasmsshfl/photogram
