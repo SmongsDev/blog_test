@@ -1,5 +1,12 @@
 # my_blog
 
+## FRONT_END
++ React
++ TypeScript
++ NextJS
+
+https://youtu.be/KvoFvmu5eRo?t=2452
+
 # instar
 https://github.com/woasmsshfl/photogram
 
