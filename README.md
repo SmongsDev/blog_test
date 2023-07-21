@@ -5,7 +5,7 @@
 + TypeScript
 + NextJS
 
-https://youtu.be/KvoFvmu5eRo?t=4314
+https://youtu.be/KvoFvmu5eRo?t=6136
 
 # instar
 https://github.com/woasmsshfl/photogram
