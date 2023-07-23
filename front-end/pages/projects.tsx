@@ -1,16 +1,19 @@
 import Layout from "@/components/layout";
 import Head from "next/head";
-import { TOKEN, DATABASE_ID } from "@/config";
+import { TOKEN, LIFE_GOAL_ID, DATABASE_ID } from "@/config";
 import type { InferGetServerSidePropsType, GetServerSideProps } from 'next';
 import ProjectItem from "@/components/projects/project-item";
 import ProjectType from "@/interface/projectType.interface";
+import GoalItem from "@/components/projects/goal-item";
 
-interface Repo {
-    repo: any;
+type Repo = {
+    results: [
+        ProjectType
+    ]
 }
- 
+
 export const getServerSideProps: GetServerSideProps<{
-//   repo: Props
+  repo: Repo
 }> = async () => {
     const options = {
         method: "post",
@@ -21,17 +24,17 @@ export const getServerSideProps: GetServerSideProps<{
             Authorization: `Bearer ${TOKEN}`
         },
         body: JSON.stringify({
-            sorts: [
-                {
-                    "property": "Name",
-                    "direction": "ascending"
-                }
-            ],
+            // sorts: [
+            //     {
+            //         "property": "Name",
+            //         "direction": "ascending"
+            //     }
+            // ],
             page_size: 100
         })
     };
 
-    const res = await fetch(`https://api.notion.com/v1/databases/${DATABASE_ID}/query`, options);
+    const res = await fetch(`https://api.notion.com/v1/databases/${LIFE_GOAL_ID}/query`, options);
     
     const repo = await res.json();
 
@@ -40,13 +43,14 @@ export const getServerSideProps: GetServerSideProps<{
 
 export default function Projects({
     repo
-}: Repo){ // InferGetServerSidePropsType<typeof getServerSideProps>    
+}: InferGetServerSidePropsType<typeof getServerSideProps> ){ 
 
-    const projectList = repo.results.map((aProject: ProjectType) => <ProjectItem key={aProject.id} data={aProject} />);
+    // const projectList = repo.results.map((aProject: ProjectType) => <ProjectItem key={aProject.id} data={aProject} />);
+    const projectList = repo.results.map((aProject: ProjectType) => <GoalItem key={aProject.id} data={aProject} />);
 
     return (
         <Layout>
-            <div className="flex flex-col items-center justify-center min-h-screen px-5 mb-10 px-6">
+            <div className="flex flex-col items-center justify-center min-h-screen px-5 mb-10">
                 <Head>
                     <title>Project - SMONGS Developer</title>
                     <meta name="description" content="오늘도 빡코딩!" />

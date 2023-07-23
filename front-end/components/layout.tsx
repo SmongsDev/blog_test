@@ -1,11 +1,7 @@
 import Footer from "./footer";
 import Header from "./header";
 
-interface IProps {
-    children: any;
-}
-
-export default function Layout({ children }: IProps){
+export default function Layout({ children }: { children: React.ReactNode }){
     return (
         <>
             <div className="bg-primary">

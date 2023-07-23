@@ -16,6 +16,17 @@ interface Mult{
 }
 
 interface Proprty{
+    Status: {
+        select: {
+            name: string;
+        }
+    }
+    Category: {
+        multi_select: Mult[];
+    }
+    Priority: {
+        select: Mult
+    }
     Date: {
         id: string;
         type: string;
@@ -68,4 +79,7 @@ export default interface ProjectType {
     properties: Proprty;
     url: string;
     cover: Img;
+    icon: {
+        emoji: string;
+    }
 }
