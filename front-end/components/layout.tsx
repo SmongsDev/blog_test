@@ -8,10 +8,11 @@ interface IProps {
 export default function Layout({ children }: IProps){
     return (
         <>
-            <Header />
-            <h1>레이아웃</h1>
-            <div>{children}</div>
-            <Footer />
+            <div className="bg-primary">
+                <Header />
+                <div>{children}</div>
+                <Footer />
+            </div>
         </>
     )
 }

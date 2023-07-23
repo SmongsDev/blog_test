@@ -1,8 +1,13 @@
 
 export default function AboutMe(){
     return (
-        <div>
-            <h1>about me</h1>
-        </div>
+        <>
+            <h1 className="text-3xl font-bold underline">
+                Hello TailWindCSS!
+            </h1>
+            <h1>
+                아뇌 왜 안됨!
+            </h1>
+        </>
     )
 }
